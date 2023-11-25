@@ -21,7 +21,10 @@ To use the module, you can invoke it directly with commands such as:
 - `DockerColorPosh ps -a`
 - `DockerColorPosh images`
 
-For convenience, you can create an alias in your PowerShell profile. This allows you to use your preferred shortcut for the commands. To set up an alias, use:
+For convenience, you can create an alias in your PowerShell profile. This allows you to use your preferred shortcut for the commands. To set up an alias, use: `Set-Alias d DockerColorPosh`
 
 ## Contributing
 Contributions to the Docker Color Posh module are warmly welcomed. If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request on the project's repository.
+
+## License
+A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
