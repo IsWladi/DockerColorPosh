@@ -1,10 +1,10 @@
 # Set the encoding to UTF8 to avoid problems with special characters
 $OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 
-# This function colorize the output of the docker command
+# This function colorize the output of the docker command of the list type
 # This function is called by the DockerColorPosh function
 # This function is not intended to be called directly
-function ColorizeOutput {
+function ColorizeTypeList {
     Param(
         [Parameter(ValueFromPipeline=$true)]
         [string]$InputLine
@@ -40,27 +40,43 @@ function ColorizeOutput {
 
 # This function is the main function of the module
 # Is the only function exported by the module
-# It´s for call the docker command and validate if the command is in the compatible list of commands and then call the ColorizeOutput function
+# It´s for call the docker command and validate if the command is in a compatible list of commands and then colorize the output
 # If the command is not in the list, the output will be shown without color
 function DockerColorPosh {
     Begin {
         $entire_command = "docker"
         # This array contains the list of commands compatible with the module
         # You must not add the command "docker" before the command name or the arguments after the command name
-        $compatible_main_docker_commands = @("ps", "images", "volume ls")
+        $docker_compatible_commands_type_list = @("ps", "images", "volume ls")
+        $docker_compatible_commands_type_response = @("volume create", "volume rm", "rmi")
+        $docker_compatible_commands_type_process = @("run", "build", "pull")
         # This regex validate if the command is supported by the module.
-        $avaliable_commands_regex = "^docker (" + ($compatible_main_docker_commands -join "|") + ")(\s+.+)?$"
+        $regex_docker_commands_type_help = "^docker .+ --help$"
+        $regex_docker_commands_type_list = "^docker (" + ($docker_compatible_commands_type_list -join "|") + ")(\s+.+)?$"
+        $regex_docker_commands_type_response = "^docker (" + ($docker_compatible_commands_type_response -join "|") + ")(\s+.+)?$"
+        $regex_docker_commands_type_process = "^docker (" + ($docker_compatible_commands_type_process -join "|") + ")(\s+.+)?$"
         }
     Process {
         # use $args to get all the input
         foreach($cmd in $args){
             $entire_command += " " + $cmd
         }
-        # check if the command is in the list and show it with color
-        if ($entire_command -match $avaliable_commands_regex) {
+        # Colorize the output with the apropiate colorize for each type of command
+        if ($entire_command -match $regex_docker_commands_type_help){
+            Invoke-Expression $entire_command | ForEach-Object { Write-Host $_ -ForegroundColor Green }
+        }
+        elseif ($entire_command -match $regex_docker_commands_type_list) {
             $output = Invoke-Expression $entire_command
-            $output | ColorizeOutput
-        } else { # If not, execute the command and show the output whitout color
+            $output | ColorizeTypeList
+        } elseif ($entire_command -match $regex_docker_commands_type_response){
+            $output = Invoke-Expression $entire_command
+            $output | ForEach-Object { Write-Host $_ -ForegroundColor Cyan }
+            }
+        elseif ($entire_command -match $regex_docker_commands_type_process){
+            # Invoke-Expression $entire_command | ForEach-Object { Write-Host $_ -ForegroundColor Yellow } # deosn´t work
+            Invoke-Expression $entire_command
+        }
+        else { # If not, execute the command and show the output whitout color
             Invoke-Expression $entire_command
         }
 
