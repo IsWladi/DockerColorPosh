@@ -45,11 +45,11 @@ function ColorizeOutput {
 function DockerColorPosh {
     Begin {
         $entire_command = "docker"
+        # This array contains the list of commands compatible with the module
+        # You must not add the command "docker" before the command name or the arguments after the command name
+        $compatible_main_docker_commands = @("ps", "images", "volume ls")
         # This regex validate if the command is supported by the module.
-        # If the command is not supported, the output will be shown without color
-        # If you want to add more commands, add the command name to the regex
-        # The regex accept the command with or without arguments
-        $avaliable_commands_regex = "^docker (ps|images)(\s+.+)?$"
+        $avaliable_commands_regex = "^docker (" + ($compatible_main_docker_commands -join "|") + ")(\s+.+)?$"
         }
     Process {
         # use $args to get all the input
