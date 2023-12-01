@@ -22,6 +22,12 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 | docker volume ls | docker rmi           |      x       |
 | docker \<COMMAND\> --help|
 
+## To do
+| Commands         | Feature              | Fix          |
+|:----------------:|:--------------------:|:------------:|
+|docker stop       |manage docker errors with colors||
+|docker compose ps |Implement compatibility for process commands||
+
 ## Installation
 To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
 1. Download the `docker_color_posh.psm1` file from the repository.
