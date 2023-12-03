@@ -12,21 +12,43 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 - 🚦 Non-Intrusive Yet Fashionable: It's like having a new paint job that doesn't change the engine. Our module is a stylish output formatter that works with your Docker commands without altering their essence.
 - 🌐 Compatibility Meets Flexibility: Fear not if a command doesn't suit up in our color scheme; it will still run just as smoothly, minus the color flair. You get the best of both worlds - the complete Docker command set, with or without our colorful touch.
 
-## Compatible Docker commands (early stage)
+## Compatible Docker commands 
 **It's important to note that while these are the primary commands supported, the module is designed to accommodate additional parameters for these commands, as with standard Docker usage. For example, you can use docker ps -a to list all containers, and the output will be colorized accordingly.**
 
-| Type list        | Type response        | Type process |
-|:----------------:|:--------------------:|:------------:|
-| docker ps        | docker volume create |      x       |
-| docker images    | docker volume rm     |      x       |
-| docker volume ls | docker rmi           |      x       |
-| docker \<COMMAND\> --help|
+| Command Type | Command |
+|-----------------|---------|
+| List | `docker container ls` |
+| List | `docker container list` |
+| List | `docker container ps` |
+| List | `docker ps` |
+| List | `docker image ls` |
+| List | `docker image list` |
+| List | `docker images` |
+| List | `docker volume ls` |
+| List | `docker volume list` |
+| List | `docker network ls` |
+| List | `docker network list` |
+| List | `docker compose ps` |
+| List | `docker system df` |
+| Response | `docker volume create` |
+| Response | `docker volume rm` |
+| Response | `docker volume remove` |
+| Response | `docker image rm` |
+| Response | `docker image remove` |
+| Response | `docker rmi` |
+| Response | `docker container stop` |
+| Response | `docker stop` |
+| Response | `docker container start` |
+| Response | `docker start` |
+| Help | `docker --help` |
+| Help | `docker <command> --help` |
 
-## To do
-| Commands         | Feature              | Fix          |
-|:----------------:|:--------------------:|:------------:|
-|docker stop       |manage docker errors with colors||
-|docker compose ps |Implement compatibility for process commands||
+## Excluded subcommands
+**Note: The excluded subcommands may be included in future versions of the application.**
+| Command Type | Subcommand |
+|--------------|------------|
+| List | `docker system df -v` |
+| List | `docker system df --verbose` |
 
 ## Installation
 To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
