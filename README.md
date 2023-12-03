@@ -58,7 +58,7 @@ To install the Docker Color Posh module and ensure its automatic loading in your
 4. After adding this line to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
 
 ## Usage
-The Docker Color Posh module enhances Docker command outputs with color. Currently, it supports colorization for `docker ps` and `docker images` commands, accepting any arguments. If a command is not supported, it will execute normally without colorization.
+The Docker Color Posh module enhances Docker command outputs with color accepting any arguments. If a command is not supported, it will execute normally without colorization.
 
 To use the module, you can invoke it directly with commands such as:
 - `DockerColorPosh ps`
