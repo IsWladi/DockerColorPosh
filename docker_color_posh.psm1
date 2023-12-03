@@ -47,14 +47,26 @@ function DockerColorPosh {
         $entire_command = "docker"
         # This array contains the list of commands compatible with the module
         # You must not add the command "docker" before the command name or the arguments after the command name
-        $docker_compatible_commands_type_list = @("ps", "images", "volume ls")
-        $docker_compatible_commands_type_response = @("volume create", "volume rm", "rmi")
-        $docker_compatible_commands_type_process = @("run", "build", "pull")
-        # This regex validate if the command is supported by the module.
-        $regex_docker_commands_type_help = "^docker .+ --help$"
+        $docker_compatible_commands_type_list = @("(container ls|container list|container ps|ps)",
+                                                  "(image ls|image list|images)",
+                                                  "(volume ls|volume list)",
+                                                  "(network ls|network list)",
+                                                  "compose ps",
+                                                  "system df")
+
+        $docker_compatible_commands_type_response = @("volume create",
+                                                      "(volume rm|volume remove)",
+                                                      "(image rm|image remove|rmi)",
+                                                      "(stop|container stop)",
+                                                      "(start|container start)")
+
+        $docker_excluded_subcommands = @("(system df -v|system df --verbose)")
+
+        # This regexs validates if the command is supported by the module.
+        $regex_docker_commands_type_help = "^(docker .+ --help|docker --help)$"
+        $regex_docker_excluded_subcommands = "^docker (" + ($docker_excluded_subcommands -join "|") + ")(\s+.+)?$"
         $regex_docker_commands_type_list = "^docker (" + ($docker_compatible_commands_type_list -join "|") + ")(\s+.+)?$"
         $regex_docker_commands_type_response = "^docker (" + ($docker_compatible_commands_type_response -join "|") + ")(\s+.+)?$"
-        $regex_docker_commands_type_process = "^docker (" + ($docker_compatible_commands_type_process -join "|") + ")(\s+.+)?$"
         }
     Process {
         # use $args to get all the input
@@ -65,6 +77,9 @@ function DockerColorPosh {
         if ($entire_command -match $regex_docker_commands_type_help){
             Invoke-Expression $entire_command | ForEach-Object { Write-Host $_ -ForegroundColor Green }
         }
+        elseif ($entire_command -match $regex_docker_excluded_subcommands) {
+            Invoke-Expression $entire_command
+        }
         elseif ($entire_command -match $regex_docker_commands_type_list) {
             $output = Invoke-Expression $entire_command
             $output | ColorizeTypeList
@@ -72,10 +87,6 @@ function DockerColorPosh {
             $output = Invoke-Expression $entire_command
             $output | ForEach-Object { Write-Host $_ -ForegroundColor Cyan }
             }
-        elseif ($entire_command -match $regex_docker_commands_type_process){
-            # Invoke-Expression $entire_command | ForEach-Object { Write-Host $_ -ForegroundColor Yellow } # deosn´t work
-            Invoke-Expression $entire_command
-        }
         else { # If not, execute the command and show the output whitout color
             Invoke-Expression $entire_command
         }
