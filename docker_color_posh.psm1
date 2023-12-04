@@ -95,5 +95,30 @@ function DockerColorPosh {
     }
 }
 
+# Integrate the DockerCompletion module with the DockerColorPosh module
+# This function has to be called after the DockerCompletion module is installed
+# DockerCompletion module: https://github.com/matt9ucci/DockerCompletion
+function IntegrateDockerCompletion{
+    # Import and get the DockerCompletion's PSModuleInfo
+    Import-Module DockerCompletion
+    [System.Management.Automation.PSModuleInfo]$DockerCompletion = Get-Module DockerCompletion
+
+    # Get the `$argumentCompleter` from the DockerCompletion's PSModuleInfo.
+    # The `$argumentCompleter` is the scriptblock for `docker` command.
+    # It is not an exported variable, but we can access it with the `PSModuleInfo.Invoke()` method like this.
+    [scriptblock]$completer = $DockerCompletion.Invoke({ $argumentCompleter })
+
+    # Register the `$argumentCompleter` for DockerColorPosh
+    Register-ArgumentCompleter -CommandName DockerColorPosh -ScriptBlock $completer
+    # get all the aliases for the DockerColorPosh function
+    $aliases = (Get-Alias -Definition DockerColorPosh -ErrorAction SilentlyContinue).Name
+    # Register the `$argumentCompleter` for each alias
+    foreach ($alias in $aliases){
+        Register-ArgumentCompleter -CommandName $alias -ScriptBlock $completer
+    }
+}
+
 # Export only the DockerColorPosh function
 Export-ModuleMember -Function 'DockerColorPosh'
+Export-ModuleMember -Function 'IntegrateDockerCompletion'
+
