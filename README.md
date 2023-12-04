@@ -12,7 +12,7 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 - 🚦 Non-Intrusive Yet Fashionable: It's like having a new paint job that doesn't change the engine. Our module is a stylish output formatter that works with your Docker commands without altering their essence.
 - 🌐 Compatibility Meets Flexibility: Fear not if a command doesn't suit up in our color scheme; it will still run just as smoothly, minus the color flair. You get the best of both worlds - the complete Docker command set, with or without our colorful touch.
 
-## Compatible Docker commands 
+## Compatible Docker commands
 **It's important to note that while these are the primary commands supported, the module is designed to accommodate additional parameters for these commands, as with standard Docker usage. For example, you can use docker ps -a to list all containers, and the output will be colorized accordingly.**
 
 | Command Type | Command |
@@ -40,6 +40,8 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 | Response | `docker stop` |
 | Response | `docker container start` |
 | Response | `docker start` |
+| Response | `docker container restart` |
+| Response | `docker restart` |
 | Help | `docker --help` |
 | Help | `docker <command> --help` |
 

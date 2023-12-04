@@ -58,7 +58,8 @@ function DockerColorPosh {
                                                       "(volume rm|volume remove)",
                                                       "(image rm|image remove|rmi)",
                                                       "(stop|container stop)",
-                                                      "(start|container start)")
+                                                      "(start|container start)",
+                                                      "(restart|container restart)")
 
         $docker_excluded_subcommands = @("(system df -v|system df --verbose)")
 
