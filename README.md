@@ -1,7 +1,3 @@
-## Project Status
-As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
-![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
-
 # 🌈 Docker Color Posh: A Splash of Color to Your Docker Console 🚀
 Make Your Docker Console Come Alive!
 Welcome to the vibrant world of Docker Color Posh, a PowerShell script crafted to transform your Docker console into a kaleidoscope of colors! 🎨 This nifty module isn't just about looks; it's about making your Docker command outputs not only eye-catching but also incredibly easy to read and understand. Dive into a Docker experience where each output becomes a vivid story, helping you quickly identify and interpret various elements with ease.
@@ -12,6 +8,20 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 - 🚦 Non-Intrusive Yet Fashionable: It's like having a new paint job that doesn't change the engine. Our module is a stylish output formatter that works with your Docker commands without altering their essence.
 - 🌐 Compatibility Meets Flexibility: Fear not if a command doesn't suit up in our color scheme; it will still run just as smoothly, minus the color flair. You get the best of both worlds - the complete Docker command set, with or without our colorful touch.
 
+# Project Status
+As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
+![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
+
+# Table of contents
+- [Module´s presentation](https://github.com/IsWladi/Docker-Color-Posh/#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
+- [Compatible Docker commands](https://github.com/IsWladi/Docker-Color-Posh/#compatible-docker-commands)
+- [Excluded subcommands](https://github.com/IsWladi/Docker-Color-Posh/#excluded-subcommands)
+- [Installation](https://github.com/IsWladi/Docker-Color-Posh/#installation)
+- [Integration with the matt9ucci/DockerCompletion module (optional)](https://github.com/IsWladi/Docker-Color-Posh/#integration-with-the-matt9uccidockercompletion-module-optional)
+- [Usage](https://github.com/IsWladi/Docker-Color-Posh/#usage)
+- [Contributing](https://github.com/IsWladi/Docker-Color-Posh/#contributing)
+- [License](https://github.com/IsWladi/Docker-Color-Posh/#license)
+  
 ## Compatible Docker commands
 **It's important to note that while these are the primary commands supported, the module is designed to accommodate additional parameters for these commands, as with standard Docker usage. For example, you can use docker ps -a to list all containers, and the output will be colorized accordingly.**
 
