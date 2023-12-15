@@ -1,6 +1,3 @@
-Remove-Module docker_color_posh
-Import-Module ..\docker_color_posh.psm1
-
 $docker_compatible_commands_type_list = @("(container ls|container list|container ps|ps)",
         "(image ls|image list|images)",
         "(volume ls|volume list)",

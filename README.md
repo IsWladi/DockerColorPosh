@@ -13,15 +13,15 @@ As of now, the Docker Color Posh module is in its initial stages of development.
 ![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
 
 # Table of contents
-- [Module´s presentation](https://github.com/IsWladi/Docker-Color-Posh/#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
-- [Compatible Docker commands](https://github.com/IsWladi/Docker-Color-Posh/#compatible-docker-commands)
-- [Excluded subcommands](https://github.com/IsWladi/Docker-Color-Posh/#excluded-subcommands)
-- [Installation](https://github.com/IsWladi/Docker-Color-Posh/#installation)
-- [Integration with the matt9ucci/DockerCompletion module (optional)](https://github.com/IsWladi/Docker-Color-Posh/#integration-with-the-matt9uccidockercompletion-module-optional)
-- [Usage](https://github.com/IsWladi/Docker-Color-Posh/#usage)
-- [Contributing](https://github.com/IsWladi/Docker-Color-Posh/#contributing)
-- [License](https://github.com/IsWladi/Docker-Color-Posh/#license)
-  
+- [Module´s presentation](#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
+- [Compatible Docker commands](#compatible-docker-commands)
+- [Excluded subcommands](#excluded-subcommands)
+- [Installation](#installation)
+- [Integration with the matt9ucci/DockerCompletion module (optional)](#integration-with-the-matt9uccidockercompletion-module-optional)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Compatible Docker commands
 **It's important to note that while these are the primary commands supported, the module is designed to accommodate additional parameters for these commands, as with standard Docker usage. For example, you can use docker ps -a to list all containers, and the output will be colorized accordingly.**
 
@@ -64,14 +64,14 @@ As of now, the Docker Color Posh module is in its initial stages of development.
 
 ## Installation
 To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
-1. Download the `docker_color_posh.psm1` file from the repository.
-2. Import the module into your PowerShell session using the command: `Import-Module -Name /path/to/docker_color_posh.psm1`
+1. Clone the repository.
+2. Import the module into your PowerShell session using the command: `Import-Module -Name /path/to/DockerColorPosh.psd1`
 3. For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use: `Set-Alias d DockerColorPosh`
 4. To make the module load automatically in future sessions, add the import command and your alias to your PowerShell profile.
 5. After adding this line to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
 6. Powershell profile example:
     ```powershell
-      Import-Module -Name C:\your\path\to\docker-color-posh\docker_color_posh.psm1
+      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
       Set-Alias d DockerColorPosh
      ```
 

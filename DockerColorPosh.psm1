@@ -4,39 +4,6 @@ $OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 # This function colorize the output of the docker command of the list type
 # This function is called by the DockerColorPosh function
 # This function is not intended to be called directly
-function ColorizeTypeList {
-    Param(
-        [Parameter(ValueFromPipeline=$true)]
-        [string]$InputLine
-    )
-
-    Begin {
-        # Create an array to store each line of the docker command output
-        $array_lines = @()
-    }
-
-    Process {
-        # Add each line to the array
-        $array_lines += $InputLine
-    }
-
-    End {
-        for ($i = 0; $i -lt $array_lines.Count; $i++) {
-            # if the line is the first one, colorize it with yellow
-            if ($i -eq 0) {
-                Write-Host $array_lines[$i] -ForegroundColor Yellow
-                continue
-            }
-            # if the line is pair, colorize it better readability
-            if ($i % 2 -eq 0) {
-                Write-Host $($array_lines[$i]) -ForegroundColor DarkCyan
-                continue
-            }
-            # if the line is impair, colorize it better readability
-            Write-Host $($array_lines[$i]) -ForegroundColor Cyan
-        }
-    }
-}
 
 # This function is the main function of the module
 # Is the only function exported by the module
@@ -117,8 +84,3 @@ function IntegrateDockerCompletion{
         Register-ArgumentCompleter -CommandName $alias -ScriptBlock $completer
     }
 }
-
-# Export only the DockerColorPosh function
-Export-ModuleMember -Function 'DockerColorPosh'
-Export-ModuleMember -Function 'IntegrateDockerCompletion'
-
