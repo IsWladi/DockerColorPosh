@@ -1,26 +1,68 @@
-# 🌈 Docker Color Posh: A Splash of Color to Your Docker Console 🚀
+<div align="center">
+   
+# DockerColorPosh
+
+##### Colorful Docker outputs for enhanced readability.
+
+</div>
+
+## Table of contents
+* [Module´s presentation](#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
+* [Project Status](#project-status)
+* [Installation](#installation)
+    * [Integration with the matt9ucci/DockerCompletion module (optional)](#integration-with-the-matt9uccidockercompletion-module-optional)
+* [Usage](#usage)
+* [Compatible Docker commands](#compatible-docker-commands)
+* [Excluded subcommands](#excluded-subcommands)
+* [Contributing](#contributing)
+* [License](#license)
+
+## 🌈 Docker Color Posh: A Splash of Color to Your Docker Console 🚀
 Make Your Docker Console Come Alive!
 Welcome to the vibrant world of Docker Color Posh, a PowerShell script crafted to transform your Docker console into a kaleidoscope of colors! 🎨 This nifty module isn't just about looks; it's about making your Docker command outputs not only eye-catching but also incredibly easy to read and understand. Dive into a Docker experience where each output becomes a vivid story, helping you quickly identify and interpret various elements with ease.
 
-# Why Docker Color Posh? Because Your Console Deserves to be Fun! 🎉
+## Why Docker Color Posh? Because Your Console Deserves to be Fun! 🎉
 Our philosophy is simple: Docker is awesome, so why not make it visually awesome too? With docker_color_posh, you'll stick to what you know and love about Docker, but with an added zest of color. It's not just a module; it's your Docker experience, reimagined!
 
 - 🚦 Non-Intrusive Yet Fashionable: It's like having a new paint job that doesn't change the engine. Our module is a stylish output formatter that works with your Docker commands without altering their essence.
 - 🌐 Compatibility Meets Flexibility: Fear not if a command doesn't suit up in our color scheme; it will still run just as smoothly, minus the color flair. You get the best of both worlds - the complete Docker command set, with or without our colorful touch.
 
-# Project Status
+## Project Status
 As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
 ![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
 
-# Table of contents
-* [Module´s presentation](#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
-* [Compatible Docker commands](#compatible-docker-commands)
-* [Excluded subcommands](#excluded-subcommands)
-* [Installation](#installation)
-    * [Integration with the matt9ucci/DockerCompletion module (optional)](#integration-with-the-matt9uccidockercompletion-module-optional)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
+## Installation
+To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
+1. Clone the repository.
+2. Import the module into your PowerShell session using the command: `Import-Module -Name /path/to/DockerColorPosh.psd1`
+3. For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use: `Set-Alias d DockerColorPosh`
+4. To make the module load automatically in future sessions, add the import command and your alias to your PowerShell profile.
+5. After adding this line to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
+6. Powershell profile example:
+    ```powershell
+      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
+      Set-Alias d DockerColorPosh
+     ```
+### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
+**The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
+1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
+2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `Invoke-Expression IntegrateDockerCompletion`
+3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
+4. Powershell profile example:
+    ```powershell
+      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
+      Set-Alias d DockerColorPosh
+      Invoke-Expression IntegrateDockerCompletion
+     ```
+
+
+## Usage
+**The Docker Color Posh module enhances Docker command outputs with color and accepts any arguments. If a command is not supported, it will execute normally without colorization. Moreover, if you have installed and integrated the DockerCompletion module, you'll enjoy the best of both worlds: completion and colorized outputs!**
+
+To use the module, you can invoke it directly with commands such as (replace `DockerColorPosh` with your alias if you have set one):
+- `DockerColorPosh ps`
+- `DockerColorPosh ps -a`
+- `DockerColorPosh images`
 
 ## Compatible Docker commands
 **It's important to note that while these are the primary commands supported, the module is designed to accommodate additional parameters for these commands, as with standard Docker usage. For example, you can use docker ps -a to list all containers, and the output will be colorized accordingly.**
@@ -61,39 +103,6 @@ As of now, the Docker Color Posh module is in its initial stages of development.
 |--------------|------------|
 | List | `docker system df -v` |
 | List | `docker system df --verbose` |
-
-## Installation
-To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
-1. Clone the repository.
-2. Import the module into your PowerShell session using the command: `Import-Module -Name /path/to/DockerColorPosh.psd1`
-3. For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use: `Set-Alias d DockerColorPosh`
-4. To make the module load automatically in future sessions, add the import command and your alias to your PowerShell profile.
-5. After adding this line to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
-6. Powershell profile example:
-    ```powershell
-      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
-      Set-Alias d DockerColorPosh
-     ```
-### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
-**The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
-1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
-2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `Invoke-Expression IntegrateDockerCompletion`
-3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
-4. Powershell profile example:
-    ```powershell
-      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
-      Set-Alias d DockerColorPosh
-      Invoke-Expression IntegrateDockerCompletion
-     ```
-
-
-## Usage
-**The Docker Color Posh module enhances Docker command outputs with color and accepts any arguments. If a command is not supported, it will execute normally without colorization. Moreover, if you have installed and integrated the DockerCompletion module, you'll enjoy the best of both worlds: completion and colorized outputs!**
-
-To use the module, you can invoke it directly with commands such as (replace `DockerColorPosh` with your alias if you have set one):
-- `DockerColorPosh ps`
-- `DockerColorPosh ps -a`
-- `DockerColorPosh images`
 
 ## Contributing
 Contributions to the Docker Color Posh module are warmly welcomed. If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request on the project's repository.
