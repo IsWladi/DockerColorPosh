@@ -15,6 +15,7 @@
 * [Compatible Docker commands](#compatible-docker-commands)
 * [Excluded subcommands](#excluded-subcommands)
 * [Contributing](#contributing)
+* [Disclaimer](#disclaimer)
 * [License](#license)
 
 ## 🌈 Docker Color Posh: A Splash of Color to Your Docker Console 🚀
@@ -106,6 +107,10 @@ To use the module, you can invoke it directly with commands such as (replace `Do
 
 ## Contributing
 Contributions to the Docker Color Posh module are warmly welcomed. If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request on the project's repository.
+
+## Disclaimer
+
+"Docker Color Posh" is an independent project created by IsWladi. This module is not sponsored, endorsed by, or affiliated with Docker, Inc. or its affiliates in any way. Docker is a registered trademark of Docker, Inc. and is mentioned here only for descriptive purposes and with no intention of infringement. This module is an independent effort to enhance the user experience in using Docker and does not imply any legal, commercial, or economic relationship with Docker, Inc.
 
 ## License
 A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
