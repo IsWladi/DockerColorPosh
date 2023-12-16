@@ -1,9 +1,9 @@
 <div align="center">
    
 # DockerColorPosh
-
 ##### Colorful Docker outputs for enhanced readability.
 
+<img alt="DockerColorPosh logo" height="280" src="/assets/DockerColorPoshLogo.png" />
 </div>
 
 ## Table of contents
