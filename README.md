@@ -34,6 +34,10 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 - Currently, the most complete coloring is available for list-type commands (e.g., `docker ps`, `docker volume ls`, `docker network ls`).
 - Response-type commands (e.g., `docker container start`, `docker rmi`) and help-type commands (e.g., `docker <command> --help`) have coloring support but it is quite basic at the moment.
 - Process-type commands (e.g., `docker build`, `docker run`, `docker pull`) are not compatible for coloring. Due to the complexity of coloring interactive and animated responses that are handled by Docker itself, the module does not intend to add coloring for these types of commands in the future. Docker already stylizes these commands with some colors and animations.
+<div align="center">
+  <img src="/assets/screenshots/docker_ps_all.png" alt="List-type: docker ps -a"/>
+</div>
+
 
 ## Installation
 
