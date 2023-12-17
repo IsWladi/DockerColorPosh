@@ -61,7 +61,7 @@ Copyright = '(c) IsWladi. All rights reserved.'
 NestedModules = @("processors/type_list/list_processor.ps1",
                   "processors/type_list/container_formatter.ps1",
                   "processors/type_list/generic_formatter.ps1",
-                  "Utility/UtilityFunctions.ps1")
+                  "utility/utility_functions.ps1")
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @("DockerColorPosh", "IntegrateDockerCompletion")
