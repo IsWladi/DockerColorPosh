@@ -33,17 +33,27 @@ As of now, the Docker Color Posh module is in its initial stages of development.
 ![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
 
 ## Installation
-To install the Docker Color Posh module and ensure its automatic loading in your PowerShell sessions, follow these steps:
-1. Clone the repository.
-2. Import the module into your PowerShell session using the command: `Import-Module -Name /path/to/DockerColorPosh.psd1`
-3. For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use: `Set-Alias d DockerColorPosh`
-4. To make the module load automatically in future sessions, add the import command and your alias to your PowerShell profile.
-5. After adding this line to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
-6. Powershell profile example:
-    ```powershell
-      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
-      Set-Alias d DockerColorPosh
-     ```
+
+To install the Docker Color Posh module and ensure it's automatically loaded in your PowerShell sessions, follow these steps:
+
+1. Install the module into your PowerShell using the command:
+   ```powershell
+   Install-Module -Name DockerColorPosh
+   ```
+
+2. (Optional) For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use for example:
+   ```powershell
+   Set-Alias d DockerColorPosh
+   ```
+
+3. PowerShell profile example (for explicit loading):
+   ```powershell
+   Import-Module -Name DockerColorPosh
+   Set-Alias d DockerColorPosh
+   ```
+   * After adding these lines to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
+   * For PowerShell 3.0 and above, the module will be automatically imported when any command from the module is used in a session, so you may not need to add the import command to your profile.
+
 ### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
 **The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
 1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
