@@ -29,8 +29,11 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 - 🌐 Compatibility Meets Flexibility: Fear not if a command doesn't suit up in our color scheme; it will still run just as smoothly, minus the color flair. You get the best of both worlds - the complete Docker command set, with or without our colorful touch.
 
 ## Project Status
-As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
-![image](https://github.com/IsWladi/Docker-Color-Posh/assets/133131317/327df00a-aa68-4b77-9745-ba3ae631ad62)
+- As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
+- The module can already color a significant number of Docker [commands](#compatible-docker-commands), and it features compatibility and integration with the DockerCompletion tab completion module.
+- Currently, the most complete coloring is available for list-type commands (e.g., `docker ps`, `docker volume ls`, `docker network ls`).
+- Response-type commands (e.g., `docker container start`, `docker rmi`) and help-type commands (e.g., `docker <command> --help`) have coloring support but it is quite basic at the moment.
+- Process-type commands (e.g., `docker build`, `docker run`, `docker pull`) are not compatible for coloring. Due to the complexity of coloring interactive and animated responses that are handled by Docker itself, the module does not intend to add coloring for these types of commands in the future. Docker already stylizes these commands with some colors and animations.
 
 ## Installation
 
