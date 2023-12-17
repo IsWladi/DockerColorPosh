@@ -22,7 +22,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) IsWladi. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Colorful Docker outputs for enhanced readability.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -58,10 +58,7 @@ Copyright = '(c) IsWladi. All rights reserved.'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @("processors/type_list/list_processor.ps1",
-                  "processors/type_list/container_formatter.ps1",
-                  "processors/type_list/generic_formatter.ps1",
-                  "utility/utility_functions.ps1")
+NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @("DockerColorPosh", "IntegrateDockerCompletion")
@@ -93,10 +90,10 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/IsWladi/DockerColorPosh/blob/main/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/IsWladi/DockerColorPosh'
 
         # A URL to an icon representing this module.
         # IconUri = ''

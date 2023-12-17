@@ -1,3 +1,9 @@
+# Import scripts
+. $PSScriptRoot/processors/type_list/list_processor.ps1
+. $PSScriptRoot/processors/type_list/container_formatter.ps1
+. $PSScriptRoot/processors/type_list/generic_formatter.ps1
+. $PSScriptRoot/utility/utility_functions.ps1
+
 # Set the encoding to UTF8 to avoid problems with special characters
 $OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 
