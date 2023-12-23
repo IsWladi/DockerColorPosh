@@ -2,6 +2,8 @@
 . $PSScriptRoot/processors/type_list/list_processor.ps1
 . $PSScriptRoot/processors/type_list/container_formatter.ps1
 . $PSScriptRoot/processors/type_list/generic_formatter.ps1
+. $PSScriptRoot/processors/type_help/help_processor.ps1
+. $PSScriptRoot/processors/type_help/colorize_help_commands.ps1
 . $PSScriptRoot/utility/utility_functions.ps1
 
 # Set the encoding to UTF8 to avoid problems with special characters
@@ -49,7 +51,8 @@ function DockerColorPosh {
         }
         # Colorize the output with the apropiate colorize for each type of command
         if ($entire_command -match $regex_docker_commands_type_help){
-            Invoke-Expression $entire_command | ForEach-Object { Write-Host $_ -ForegroundColor Green }
+            $output = Invoke-Expression $entire_command
+            $output | ColorizeTypeHelp
         }
         elseif ($entire_command -match $regex_docker_excluded_subcommands) {
             Invoke-Expression $entire_command
