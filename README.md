@@ -31,8 +31,8 @@ Our philosophy is simple: Docker is awesome, so why not make it visually awesome
 ## Project Status
 - As of now, the Docker Color Posh module is in its initial stages of development. Further enhancements and feature additions are planned.
 - The module can already color a significant number of Docker [commands](#compatible-docker-commands), and it features compatibility and integration with the DockerCompletion tab completion module.
-- Currently, the most complete coloring is available for list-type commands (e.g., `docker ps`, `docker volume ls`, `docker network ls`).
-- Response-type commands (e.g., `docker container start`, `docker rmi`) and help-type commands (e.g., `docker <command> --help`) have coloring support but it is quite basic at the moment.
+- Currently, the most complete coloring is available for list-type commands (e.g., `docker ps`, `docker volume ls`, `docker network ls`) and help-type commands (e.g., `docker <command> --help`).
+- Response-type commands (e.g., `docker container start`, `docker rmi`) have coloring support but it is quite basic at the moment.
 - Process-type commands (e.g., `docker build`, `docker run`, `docker pull`) are not compatible for coloring. Due to the complexity of coloring interactive and animated responses that are handled by Docker itself, the module does not intend to add coloring for these types of commands in the future. Docker already stylizes these commands with some colors and animations.
 <div align="center">
   <img src="/assets/screenshots/docker_ps_all.png" alt="List-type: docker ps -a"/>
@@ -70,9 +70,8 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
     ```powershell
       Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
       Set-Alias d DockerColorPosh
-      Invoke-Expression IntegrateDockerCompletion
+      IntegrateDockerCompletionWithDockerColorPosh
      ```
-
 
 ## Usage
 **The Docker Color Posh module enhances Docker command outputs with color and accepts any arguments. If a command is not supported, it will execute normally without colorization. Moreover, if you have installed and integrated the DockerCompletion module, you'll enjoy the best of both worlds: completion and colorized outputs!**

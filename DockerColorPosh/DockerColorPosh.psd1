@@ -4,7 +4,7 @@
 RootModule = 'DockerColorPosh.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -61,13 +61,13 @@ Description = 'Colorful Docker outputs for enhanced readability.'
 NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @("DockerColorPosh", "IntegrateDockerCompletion")
+FunctionsToExport = @("DockerColorPosh", "IntegrateDockerCompletionWithDockerColorPosh")
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
 
 # Variables to export from this module
-VariablesToExport = '*'
+VariablesToExport = "*"
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 AliasesToExport = @()
@@ -96,7 +96,7 @@ PrivateData = @{
         ProjectUri = 'https://github.com/IsWladi/DockerColorPosh'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        # IconUri = 'https://github.com/IsWladi/DockerColorPosh/blob/main/assets/DockerColorPoshLogo.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''

@@ -5,16 +5,16 @@ function GenericFormatter {
             [Parameter(Mandatory = $true)]
             [int]$i
           )
-            # if the line is the first one, colorize it with yellow
+            # if the line is the first one, colorize it with $header_color
                 if ($i -eq 0) {
-                    Write-Host $array_lines[$i] -ForegroundColor Yellow
+                    Write-Host $array_lines[$i] -ForegroundColor $header_color
                         return
                 }
             # if the line is pair, colorize it better readability
                 if ($i % 2 -eq 0) {
-                    Write-Host $($array_lines[$i]) -ForegroundColor DarkCyan
+                    Write-Host $($array_lines[$i]) -ForegroundColor $secondary_color
                         return
                 }
             # if the line is impair, colorize it better readability
-                Write-Host $($array_lines[$i]) -ForegroundColor Cyan
+                Write-Host $($array_lines[$i]) -ForegroundColor $main_color
 }

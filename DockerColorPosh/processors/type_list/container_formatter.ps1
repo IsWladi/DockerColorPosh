@@ -7,7 +7,7 @@ function ContainerFormatter {
           )
 
                 if ($i -eq 0) {
-                    Write-Host $array_lines[$i] -ForegroundColor Yellow
+                    Write-Host $array_lines[$i] -ForegroundColor $header_color
                         return
                 }
                 # determine the state of the container
@@ -21,20 +21,17 @@ function ContainerFormatter {
                     $container_state = "Exited"
                 }
 
-                $color_command = if ($i % 2 -eq 0) { "DarkCyan" } else { "Cyan" }
+                $color_command = if ($i % 2 -eq 0) { $secondary_color} else { $main_color }
 
-                # Create a hashtable to store the colors of each state
-                $stateColors = @{
-                        "Up" = "Green"
-                        "Exited" = "Red"
-                        "Other"= $color_command
-                }
-                $color_subcommand = $stateColors[$container_state]
+                $color_subcommand = $containerStateColors[$container_state]
 
                 # if the state it´s not Up or Exited, colorize it without resalt the state
                 if ($container_state -eq "Other") {
                     Write-Host $array_lines[$i] -ForegroundColor $color_command
                 } else {
-                ParseSubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state -sub_cmd_color $color_subcommand -main_color $color_command
+
+                $left_part, $sub_cmd, $right_part = ParseSubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state
+                PrintParsedSubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -right_part $right_part -main_color $color_command -sub_cmd_color $color_subcommand
+
                 }
 }
