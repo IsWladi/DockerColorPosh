@@ -83,7 +83,7 @@ function DockerColorPosh {
 # Integrate the DockerCompletion module with the DockerColorPosh module
 # This function has to be called after the DockerCompletion module is installed
 # DockerCompletion module: https://github.com/matt9ucci/DockerCompletion
-function IntegrateDockerCompletion{
+function IntegrateDockerCompletionWithDockerColorPosh{
     # Import and get the DockerCompletion's PSModuleInfo
     Import-Module DockerCompletion
     [System.Management.Automation.PSModuleInfo]$DockerCompletion = Get-Module DockerCompletion
