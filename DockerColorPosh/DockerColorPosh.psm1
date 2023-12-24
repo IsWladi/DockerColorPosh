@@ -1,9 +1,18 @@
 # Import scripts
+
+## Charge presets
+. $PSScriptRoot/presets/colors.ps1
+
+## List-type scripts
 . $PSScriptRoot/processors/type_list/list_processor.ps1
 . $PSScriptRoot/processors/type_list/container_formatter.ps1
 . $PSScriptRoot/processors/type_list/generic_formatter.ps1
+
+## Help-type scripts
 . $PSScriptRoot/processors/type_help/help_processor.ps1
 . $PSScriptRoot/processors/type_help/colorize_help_commands.ps1
+
+## Utility scripts
 . $PSScriptRoot/utility/utility_functions.ps1
 
 # Set the encoding to UTF8 to avoid problems with special characters
@@ -62,7 +71,7 @@ function DockerColorPosh {
             $output | ColorizeTypeList
         } elseif ($entire_command -match $regex_docker_commands_type_response){
             $output = Invoke-Expression $entire_command
-            $output | ForEach-Object { Write-Host $_ -ForegroundColor Cyan }
+            $output | ForEach-Object { Write-Host $_ -ForegroundColor $main_color }
             }
         else { # If not, execute the command and show the output whitout color
             Invoke-Expression $entire_command
