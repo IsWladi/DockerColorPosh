@@ -1,17 +1,13 @@
 name: Publish
-on:
-  workflow_dispatch:
-    branches:
-      - main
-
+on: workflow_dispatch
 jobs:
     build:
       name: Publish
-      runs-on: ubuntu-latest
+      runs-on: windows-latest
       steps:
         - uses: actions/checkout@v4
         - name: Publish module to PowerShell Gallery
           env:
             API_KEY: ${{ secrets.API_KEY }}
           run: .\publish.ps1
-          shell: powershell
+          shell: pwsh
