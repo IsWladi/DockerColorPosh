@@ -27,11 +27,13 @@ function ColorizeTypeHelp {
                 elseif ($array_lines[$i] -match "^\s*(-|--)[a-z]+") {
                     ColorizeFlagsInHelpCommands -full_cmd $array_lines[$i] `
                                                -regex @("^\s*-[a-z],",
-                                                        "--[a-z]+-?",
-                                                        "[a-z]-[a-z]",
-                                                        "[a-z]-[a-z]") `
-                                               -to_extract @("-", "--", "-", "-") -sub_cmd_color $abrev_flag_color -main_color $main_color
+                                                        "^\s*.*--[a-z]+-?",
+                                                        "^\s*\w*[a-z]-[a-z]",
+                                                        "^\s*\w*[a-z]-[a-z]",
+                                                        "^\b\w+\s+\w+-\w+\b") `
+                                               -to_extract @("-", "--", "-", "-", "-") -sub_cmd_color $abrev_flag_color -main_color $main_color
                 }
+                # Generic color
                 else {
                     Write-Host $array_lines[$i] -ForegroundColor $main_color
                     }

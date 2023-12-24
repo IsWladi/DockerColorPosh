@@ -35,6 +35,9 @@ function ContainerFormatter {
                 if ($container_state -eq "Other") {
                     Write-Host $array_lines[$i] -ForegroundColor $color_command
                 } else {
-                ParseSubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state -sub_cmd_color $color_subcommand -main_color $color_command
+
+                $left_part, $sub_cmd, $right_part = ParseSubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state
+                PrintParsedSubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -right_part $right_part -main_color $color_command -sub_cmd_color $color_subcommand
+
                 }
 }
