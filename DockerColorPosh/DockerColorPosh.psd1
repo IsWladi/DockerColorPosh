@@ -4,7 +4,7 @@
 RootModule = 'DockerColorPosh.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -96,7 +96,7 @@ PrivateData = @{
         ProjectUri = 'https://github.com/IsWladi/DockerColorPosh'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        # IconUri = 'https://github.com/IsWladi/DockerColorPosh/blob/main/assets/DockerColorPoshLogo.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
