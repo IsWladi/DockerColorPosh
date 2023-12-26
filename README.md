@@ -45,12 +45,12 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
 
 1. Install the module into your PowerShell using the command:
    ```powershell
-   Install-Module -Name DockerColorPosh
+   PS> Install-Module -Name DockerColorPosh
    ```
 
 2. (Optional) For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use for example:
    ```powershell
-   Set-Alias d DockerColorPosh
+   PS> Set-Alias d DockerColorPosh
    ```
 
 3. PowerShell profile example (for explicit loading):
@@ -63,14 +63,17 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
 
 ### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
 **The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
-1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
-2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `IntegrateDockerCompletionWithDockerColorPosh`
-3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
-4. Powershell profile example:
+1. After installing and configuring the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
+2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh (after DockerColorPosh has been imported and configured):
     ```powershell
-      Import-Module -Name DockerColorPosh
-      Set-Alias d DockerColorPosh
-      IntegrateDockerCompletionWithDockerColorPosh
+    PS> Enable-DockerCompletionWithinDockerColorPosh
+     ```
+3. To permanently integrate, add the line to your PowerShell profile. Make sure the line `Enable-DockerCompletionWithinDockerColorPosh` is placed after the DockerColorPosh module's alias has been set up.
+4. Powershell profile example:
+    ```powershell profile
+   Import-Module -Name DockerColorPosh
+   Set-Alias d DockerColorPosh
+   Enable-DockerCompletionWithinDockerColorPosh
      ```
 
 ## Usage
