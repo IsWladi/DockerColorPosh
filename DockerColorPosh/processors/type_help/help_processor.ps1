@@ -1,4 +1,4 @@
-function ColorizeTypeHelp {
+function Format-TypeHelpCommand {
     Param(
         [Parameter(ValueFromPipeline=$true)]
         [string]$InputLine
@@ -22,7 +22,7 @@ function ColorizeTypeHelp {
                     }
                 # Colorize the "-" and "--" in the flags
                 elseif ($array_lines[$i] -match "^\s*(-|--)[a-z]+") {
-                    ColorizeFlagsInHelpCommands -full_cmd $array_lines[$i] `
+                    Write-ColorizedHelpFlagsTypeOutput -full_cmd $array_lines[$i] `
                                                -regex @("^\s*-[a-z],",
                                                         "^\s*.*--[a-z]+-?",
                                                         "^\s*\w*[a-z]-[a-z]",

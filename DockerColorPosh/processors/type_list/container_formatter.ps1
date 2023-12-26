@@ -1,4 +1,4 @@
-function ContainerFormatter {
+function Write-ColorizedContainerTypeOutput {
     param (
             [Parameter(Mandatory = $true)]
             [string[]]$array_lines,
@@ -34,8 +34,8 @@ function ContainerFormatter {
                     Write-Host $array_lines[$i] -ForegroundColor $color_command
                 } else {
 
-                $left_part, $sub_cmd, $right_part = ParseSubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state
-                PrintParsedSubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -right_part $right_part -main_color $color_command -sub_cmd_color $color_subcommand
+                $left_part, $sub_cmd, $right_part = Split-SubExpressionRegex -full_cmd $array_lines[$i] -regex $container_state
+                Write-SubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -right_part $right_part -main_color $color_command -sub_cmd_color $color_subcommand
 
                 }
 }

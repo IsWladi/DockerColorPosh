@@ -1,4 +1,4 @@
-function ColorizeTypeList {
+function Format-TypeListCommand {
     Param(
         [Parameter(ValueFromPipeline=$true)]
         [string]$InputLine
@@ -18,12 +18,12 @@ function ColorizeTypeList {
         # if the list is of type "container list"
         if ($array_lines[0] -match "CONTAINER ID") {
             for ($i = 0; $i -lt $array_lines.Count; $i++) {
-                ContainerFormatter -array_lines $array_lines -i $i
+                Write-ColorizedContainerTypeOutput -array_lines $array_lines -i $i
             }
             }
         else {
             for ($i = 0; $i -lt $array_lines.Count; $i++) {
-                GenericFormatter -array_lines $array_lines -i $i
+                Write-ColorizedListTypeOutput -array_lines $array_lines -i $i
             }
             }
     }

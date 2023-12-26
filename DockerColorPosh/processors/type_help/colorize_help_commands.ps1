@@ -1,5 +1,5 @@
 # This function is used to colorize the "-" and "--" flags in the help command
-function ColorizeFlagsInHelpCommands {
+function Write-ColorizedHelpFlagsTypeOutput {
     Param(
         [Parameter(Mandatory=$true)]
         [string]$full_cmd,
@@ -19,8 +19,8 @@ function ColorizeFlagsInHelpCommands {
     $i = 0
     foreach ($reg in $regex) {
         if ($full_cmd -match $reg){
-            $left_part, $sub_cmd, $right_part = ParseSubExpressionRegex -full_cmd $full_cmd -regex $to_extract[$i]
-            PrintParsedSubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -main_color $main_color -sub_cmd_color $sub_cmd_color
+            $left_part, $sub_cmd, $right_part = Split-SubExpressionRegex -full_cmd $full_cmd -regex $to_extract[$i]
+            Write-SubExpressionRegex -left_part $left_part -sub_cmd $sub_cmd -main_color $main_color -sub_cmd_color $sub_cmd_color
             $full_cmd = $right_part
             }
         else {

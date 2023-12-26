@@ -1,6 +1,6 @@
 # Extract the subcommand from the full command if exists
 # Return an array of strings; left_part, sub_cmd, right_part
-function ParseSubExpressionRegex {
+function Split-SubExpressionRegex {
     Param(
         [Parameter(Mandatory=$true)]
         [string]$full_cmd,
@@ -22,8 +22,8 @@ function ParseSubExpressionRegex {
 # Colorize the subcommand in the full command
 # It will colorize the subcommand and the left and right parts of the full command
 # The right part is optional
-# Its ideal to use this function with the output of the function ParseSubExpressionRegex
-function PrintParsedSubExpressionRegex {
+# Its ideal to use this function with the output of the function Split-SubExpressionRegex
+function Write-SubExpressionRegex {
     Param(
         #colors
         [Parameter(Mandatory=$true)]

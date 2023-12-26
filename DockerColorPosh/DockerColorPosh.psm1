@@ -17,9 +17,6 @@
 # Set the encoding to UTF8 to avoid problems with special characters
 $OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 
-# This function colorize the output of the docker command of the list type
-# This function is called by the DockerColorPosh function
-# This function is not intended to be called directly
 
 # This function is the main function of the module
 # Is the only function exported by the module
@@ -60,14 +57,14 @@ function DockerColorPosh {
         # Colorize the output with the apropiate colorize for each type of command
         if ($entire_command -match $regex_docker_commands_type_help){
             $output = Invoke-Expression $entire_command
-            $output | ColorizeTypeHelp
+            $output | Format-TypeHelpCommand
         }
         elseif ($entire_command -match $regex_docker_excluded_subcommands) {
             Invoke-Expression $entire_command
         }
         elseif ($entire_command -match $regex_docker_commands_type_list) {
             $output = Invoke-Expression $entire_command
-            $output | ColorizeTypeList
+            $output | Format-TypeListCommand
         } elseif ($entire_command -match $regex_docker_commands_type_response){
             $output = Invoke-Expression $entire_command
             $output | ForEach-Object { Write-Host $_ -ForegroundColor $main_color }
@@ -82,7 +79,7 @@ function DockerColorPosh {
 # Integrate the DockerCompletion module with the DockerColorPosh module
 # This function has to be called after the DockerCompletion module is installed
 # DockerCompletion module: https://github.com/matt9ucci/DockerCompletion
-function IntegrateDockerCompletionWithDockerColorPosh{
+function Enable-DockerCompletionWithinDockerColorPosh{
     # Import and get the DockerCompletion's PSModuleInfo
     Import-Module DockerCompletion
     [System.Management.Automation.PSModuleInfo]$DockerCompletion = Get-Module DockerCompletion
@@ -103,7 +100,7 @@ function IntegrateDockerCompletionWithDockerColorPosh{
 }
 
 # This function is for open the color-scheme file and being able to edit it by the user
-function OpenColorSchemeFile {
+function Open-ColorSchemeFile {
     Write-Host "Opening the color scheme file at $colorSchemeFilePath"
     Start-Process colorSchemeFilePath
 
