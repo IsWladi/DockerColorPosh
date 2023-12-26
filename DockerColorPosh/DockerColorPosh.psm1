@@ -1,8 +1,7 @@
 # Import scripts
 
 ## Charge presets
-. $PSScriptRoot/presets/colors.ps1
-
+. $PSScriptRoot/utility/color_charge.ps1
 ## List-type scripts
 . $PSScriptRoot/processors/type_list/list_processor.ps1
 . $PSScriptRoot/processors/type_list/container_formatter.ps1
@@ -101,4 +100,11 @@ function IntegrateDockerCompletionWithDockerColorPosh{
     foreach ($alias in $aliases){
         Register-ArgumentCompleter -CommandName $alias -ScriptBlock $completer
     }
+}
+
+# This function is for open the color-scheme file and being able to edit it by the user
+function OpenColorSchemeFile {
+    Write-Host "Opening the color scheme file at $colorSchemeFilePath"
+    Start-Process colorSchemeFilePath
+
 }

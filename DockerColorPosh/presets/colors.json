@@ -1,0 +1,17 @@
+{
+    "GeneralColors": {
+        "MainColor": "Cyan",
+        "SecondaryColor": "DarkCyan",
+        "HeaderColor": "Yellow"
+    },
+    "HelpTypeCommands": {
+        "HelpFlagColor": "Red",
+        "HelpHeaderColor": "Green"
+    },
+    "ListTypeCommands": {
+        "ContainerListSubcommands": {
+            "Up": "Green",
+            "Exited": "Red"
+        }
+    }
+}

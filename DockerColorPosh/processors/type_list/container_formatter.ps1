@@ -23,7 +23,11 @@ function ContainerFormatter {
 
                 $color_command = if ($i % 2 -eq 0) { $secondary_color} else { $main_color }
 
-                $color_subcommand = $containerStateColors[$container_state]
+                $color_subcommand = if ($containerStatusColors[$container_state]) {
+                    $containerStatusColors[$container_state]
+                } else {
+                    $color_command
+                }
 
                 # if the state it´s not Up or Exited, colorize it without resalt the state
                 if ($container_state -eq "Other") {
