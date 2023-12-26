@@ -68,7 +68,7 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
 3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
 4. Powershell profile example:
     ```powershell
-      Import-Module -Name C:\your\path\to\DockerColorPosh\DockerColorPosh.psd1
+      Import-Module -Name DockerColorPosh
       Set-Alias d DockerColorPosh
       IntegrateDockerCompletionWithDockerColorPosh
      ```
