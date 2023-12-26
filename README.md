@@ -64,7 +64,7 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
 ### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
 **The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
 1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
-2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `Invoke-Expression IntegrateDockerCompletion`
+2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `IntegrateDockerCompletionWithDockerColorPosh`
 3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
 4. Powershell profile example:
     ```powershell
