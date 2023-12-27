@@ -4,12 +4,16 @@
 . $PSScriptRoot/utility/color_charge.ps1
 ## List-type scripts
 . $PSScriptRoot/processors/type_list/list_processor.ps1
-. $PSScriptRoot/processors/type_list/container_formatter.ps1
-. $PSScriptRoot/processors/type_list/generic_formatter.ps1
+. $PSScriptRoot/processors/type_list/list_container_colorizer.ps1
+. $PSScriptRoot/processors/type_list/list_colorizer.ps1
 
 ## Help-type scripts
 . $PSScriptRoot/processors/type_help/help_processor.ps1
-. $PSScriptRoot/processors/type_help/colorize_help_commands.ps1
+. $PSScriptRoot/processors/type_help/help_colorizer.ps1
+
+## Response-type scripts
+. $PSScriptRoot/processors/type_response/response_processor.ps1
+. $PSScriptRoot/processors/type_response/response_colorizer.ps1
 
 ## Utility scripts
 . $PSScriptRoot/utility/utility_functions.ps1
@@ -59,15 +63,18 @@ function DockerColorPosh {
             $output = Invoke-Expression $entire_command
             $output | Format-TypeHelpCommand
         }
+
         elseif ($entire_command -match $regex_docker_excluded_subcommands) {
             Invoke-Expression $entire_command
         }
+
         elseif ($entire_command -match $regex_docker_commands_type_list) {
             $output = Invoke-Expression $entire_command
             $output | Format-TypeListCommand
+
         } elseif ($entire_command -match $regex_docker_commands_type_response){
             $output = Invoke-Expression $entire_command
-            $output | ForEach-Object { Write-Host $_ -ForegroundColor $main_color }
+            $output | Format-TypeResponseCommand
             }
         else { # If not, execute the command and show the output whitout color
             Invoke-Expression $entire_command
