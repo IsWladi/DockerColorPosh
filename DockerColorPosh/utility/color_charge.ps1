@@ -1,4 +1,8 @@
 $colorSchemeFilePath = "$PSScriptRoot\..\presets\colors.json"
+# by default, use the DEFAULT color scheme
+# if the user has set a color scheme, use it
+$colorScheme = if ($null -eq $dcpColorScheme) { "DEFAULT" } else { $dcpColorScheme }
+
 # Function to convert the color in text to ConsoleColor
 function Convert-ToConsoleColor($colorName) {
     [System.ConsoleColor]$resultColor = [System.ConsoleColor]::White
@@ -12,6 +16,8 @@ function Convert-ToConsoleColor($colorName) {
 
 # Charge the configuration from the JSON file
 $config = Get-Content -Path $colorSchemeFilePath | ConvertFrom-Json
+# $config = $config.$colorScheme
+$config = $config.ColorSchemes.$colorScheme
 
 # Assign colors
 #

@@ -1,17 +1,39 @@
 {
-    "GeneralColors": {
-        "MainColor": "Cyan",
-        "SecondaryColor": "DarkCyan",
-        "HeaderColor": "Yellow"
-    },
-    "HelpTypeCommands": {
-        "HelpFlagColor": "Red",
-        "HelpHeaderColor": "Green"
-    },
-    "ListTypeCommands": {
-        "ContainerListSubcommands": {
-            "Up": "Green",
-            "Exited": "Red"
+    "ColorSchemes": {
+        "DEFAULT": {
+            "GeneralColors": {
+                "MainColor": "Cyan",
+                "SecondaryColor": "DarkCyan",
+                "HeaderColor": "Yellow"
+            },
+            "HelpTypeCommands": {
+                "HelpFlagColor": "Red",
+                "HelpHeaderColor": "Green"
+            },
+            "ListTypeCommands": {
+                "ContainerListSubcommands": {
+                    "Up": "Green",
+                    "Exited": "Red"
+                }
+            }
+        },
+
+        "DARK": {
+            "GeneralColors": {
+                "MainColor": "DarkBlue",
+                "SecondaryColor": "DarkCyan",
+                "HeaderColor": "DarkYellow"
+            },
+            "HelpTypeCommands": {
+                "HelpFlagColor": "DarkRed",
+                "HelpHeaderColor": "DarkMagenta"
+            },
+            "ListTypeCommands": {
+                "ContainerListSubcommands": {
+                    "Up": "DarkGreen",
+                    "Exited": "DarkRed"
+                }
+            }
         }
     }
 }
