@@ -106,11 +106,13 @@ function Enable-DockerCompletionWithinDockerColorPosh{
     }
 }
 
-# This function is for open the color-scheme file and being able to edit it by the user
+# This function is for open the color-scheme file configured in the module.
+# If a custom file is not configured, the default file will be opened
+# Is not recommended to edit the default color scheme file, because it will be overwritten when the module is updated
 # If you edit the file, you must restart the terminal to apply the changes
 function Open-DockerColorPoshColorSchemeFile {
     #resolve the path of the file
-    $schemeFilePath = Resolve-Path $colorSchemeFilePath
+    $schemeFilePath = Resolve-Path $targetColorSchemeFilePath
     Write-Warning "Opening the color scheme file at $schemeFilePath"
     #open the file with the default program for .json files in the system
     Start-Process $schemeFilePath
