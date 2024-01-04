@@ -59,18 +59,18 @@ $SchemeConfigFile = $SchemeConfigFile.ColorSchemes.$colorScheme
 # Assign colors
 #
 # General colors
-$main_color = Convert-ToConsoleColor $SchemeConfigFile.GeneralColors.MainColor
-$secondary_color = Convert-ToConsoleColor $SchemeConfigFile.GeneralColors.SecondaryColor
+$main_color = Convert-ToConsoleColor $SchemeConfigFile.GeneralColors.FirstRow
+$secondary_color = Convert-ToConsoleColor $SchemeConfigFile.GeneralColors.SecondRow
 $header_color = Convert-ToConsoleColor $SchemeConfigFile.GeneralColors.HeaderColor
 #
 # Help colors
-$help_flag_color = Convert-ToConsoleColor $SchemeConfigFile.HelpTypeCommands.HelpFlagColor
+$help_flag_color = Convert-ToConsoleColor $SchemeConfigFile.HelpTypeCommands.HelpFlagsColor
 $help_header_color = Convert-ToConsoleColor $SchemeConfigFile.HelpTypeCommands.HelpHeaderColor
 #
 # List colors
 ## Container list colors
-$container_status_up_color = Convert-ToConsoleColor $SchemeConfigFile.ListTypeCommands.ContainerListSubcommands.Up
-$container_status_exited_color = Convert-ToConsoleColor $SchemeConfigFile.ListTypeCommands.ContainerListSubcommands.Exited
+$container_status_up_color = Convert-ToConsoleColor $SchemeConfigFile.ListTypeCommands.ContainerStatus.Up
+$container_status_exited_color = Convert-ToConsoleColor $SchemeConfigFile.ListTypeCommands.ContainerStatus.Exited
 $containerStatusColors = @{
     "Up" = $container_status_up_color
     "Exited" = $container_status_exited_color

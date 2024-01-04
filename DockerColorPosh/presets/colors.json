@@ -2,16 +2,16 @@
     "ColorSchemes": {
         "LIGHT": {
             "GeneralColors": {
-                "MainColor": "Cyan",
-                "SecondaryColor": "DarkCyan",
-                "HeaderColor": "Yellow"
+                "HeaderColor": "Yellow",
+                "FirstRow": "Cyan",
+                "SecondRow": "DarkCyan"
             },
             "HelpTypeCommands": {
-                "HelpFlagColor": "Red",
+                "HelpFlagsColor": "Red",
                 "HelpHeaderColor": "Green"
             },
             "ListTypeCommands": {
-                "ContainerListSubcommands": {
+                "ContainerStatus": {
                     "Up": "Green",
                     "Exited": "Red"
                 }
@@ -20,16 +20,16 @@
 
         "DARK": {
             "GeneralColors": {
-                "MainColor": "DarkBlue",
-                "SecondaryColor": "DarkCyan",
-                "HeaderColor": "DarkYellow"
+                "HeaderColor": "DarkYellow",
+                "FirstRow": "DarkBlue",
+                "SecondRow": "DarkCyan"
             },
             "HelpTypeCommands": {
-                "HelpFlagColor": "DarkRed",
+                "HelpFlagsColor": "DarkRed",
                 "HelpHeaderColor": "DarkMagenta"
             },
             "ListTypeCommands": {
-                "ContainerListSubcommands": {
+                "ContainerStatus": {
                     "Up": "DarkGreen",
                     "Exited": "DarkRed"
                 }
