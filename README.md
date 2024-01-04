@@ -10,8 +10,8 @@
 * [Module´s presentation](#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
 * [Project Status](#project-status)
 * [Installation](#installation)
-    * [Integration with the matt9ucci/DockerCompletion module ( optional )](#integration-with-the-matt9uccidockercompletion-module-optional)
-    * [Customization ( optional )](#Customization)
+    * [( optional ) Integration with the matt9ucci/DockerCompletion module](#integration-with-the-matt9uccidockercompletion-module)
+    * [( optional ) Customization](#customization) 
 * [Usage](#usage)
 * [Compatible Docker commands](#compatible-docker-commands)
 * [Excluded subcommands](#excluded-subcommands)
@@ -62,7 +62,7 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
    * After adding these lines to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
    * For PowerShell 3.0 and above, the module will be automatically imported when any command from the module is used in a session, so you may not need to add the import command to your profile.
 
-### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module ( optional )
+### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module
 **The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
 1. After installing and configuring the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
 2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh (after DockerColorPosh has been imported and configured):
@@ -76,7 +76,7 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
    Set-Alias d DockerColorPosh
    Enable-DockerCompletionWithinDockerColorPosh
      ```
-### Customization ( optional )
+### Customization
 
 **Explore and personalize the color schemes within the module or introduce your own to tailor your experience.**
 
