@@ -75,6 +75,58 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
    Set-Alias d DockerColorPosh
    Enable-DockerCompletionWithinDockerColorPosh
      ```
+### Customization
+
+**Explore and personalize the color schemes within the module or introduce your own to tailor your experience.**
+
+1. **Changing the Color Scheme:**
+   - The pre-defined color schemes are listed in the [colors.json](https://github.com/IsWladi/DockerColorPosh/blob/dev/DockerColorPosh/presets/colors.json) file.
+   - "DARK" is the set default color scheme.
+   - To switch to a different scheme:
+     - Assign a value to the `dcpColorScheme` variable with the name of your desired color scheme. If the name is not recognized, the default scheme is applied.
+     - Set the variable in your PowerShell profile.
+     - Restart the terminal to apply the new color scheme.
+   - **Powershell profile Example:**
+     ```powershell
+     Set-Variable -Name dcpColorScheme -Value "LIGHT" # Applies the 'LIGHT' color scheme
+     ```
+
+2. **Adding Your Own Color Scheme:**
+   - To create a custom color scheme, start by saving a new JSON file on your computer using the following structure:
+     ```json
+     {
+        "ColorSchemes": {
+            "MYSCHEME1": {
+                "GeneralColors": {
+                    "HeaderColor": "DarkYellow",
+                    "FirstRow": "DarkBlue",
+                    "SecondRow": "DarkCyan"
+                },
+                "HelpTypeCommands": {
+                    "HelpFlagsColor": "DarkRed",
+                    "HelpHeaderColor": "DarkMagenta"
+                },
+                "ListTypeCommands": {
+                    "ContainerStatus": {
+                        "Up": "DarkGreen",
+                        "Exited": "DarkRed"
+                    }
+                }
+            }
+        }
+     }
+     ```
+   - Customize your scheme by renaming `MYSCHEME1` and changing the colors. Make sure to choose colors supported by PowerShell.
+   - Once your color scheme is ready:
+     - Assign the path of your custom scheme file to the variable `dcpCustomColorSchemePath`.
+     - Set `dcpColorScheme` to the name of your new color scheme.
+     - Set these variables in your PowerShell profile.
+     - Restart the terminal to see your color scheme in action.
+   - **Powershell profile Example:**
+     ```powershell
+     Set-Variable -Name dcpCustomColorSchemePath -Value "C:\path\to\your\dcp_custom_scheme_file.json" # Loads your custom color scheme
+     Set-Variable -Name dcpColorScheme -Value "MYSCHEME1" # Applies your custom color scheme
+     ```
 
 ## Usage
 **The Docker Color Posh module enhances Docker command outputs with color and accepts any arguments. If a command is not supported, it will execute normally without colorization. Moreover, if you have installed and integrated the DockerCompletion module, you'll enjoy the best of both worlds: completion and colorized outputs!**
