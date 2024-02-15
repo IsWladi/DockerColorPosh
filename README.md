@@ -1,3 +1,5 @@
+# IMPORTANT
+**This repository has been archived because I no longer use Docker on Windows; I have migrated to WSL2. Feel free to fork the repository and use this module.**
 <div align="center">
    
 # DockerColorPosh
