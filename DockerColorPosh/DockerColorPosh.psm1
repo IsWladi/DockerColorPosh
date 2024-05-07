@@ -1,16 +1,19 @@
 # Import scripts
 
 ## Charge presets
-. $PSScriptRoot/presets/colors.ps1
-
+. $PSScriptRoot/utility/color_charge.ps1
 ## List-type scripts
 . $PSScriptRoot/processors/type_list/list_processor.ps1
-. $PSScriptRoot/processors/type_list/container_formatter.ps1
-. $PSScriptRoot/processors/type_list/generic_formatter.ps1
+. $PSScriptRoot/processors/type_list/list_container_colorizer.ps1
+. $PSScriptRoot/processors/type_list/list_colorizer.ps1
 
 ## Help-type scripts
 . $PSScriptRoot/processors/type_help/help_processor.ps1
-. $PSScriptRoot/processors/type_help/colorize_help_commands.ps1
+. $PSScriptRoot/processors/type_help/help_colorizer.ps1
+
+## Response-type scripts
+. $PSScriptRoot/processors/type_response/response_processor.ps1
+. $PSScriptRoot/processors/type_response/response_colorizer.ps1
 
 ## Utility scripts
 . $PSScriptRoot/utility/utility_functions.ps1
@@ -18,9 +21,6 @@
 # Set the encoding to UTF8 to avoid problems with special characters
 $OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 
-# This function colorize the output of the docker command of the list type
-# This function is called by the DockerColorPosh function
-# This function is not intended to be called directly
 
 # This function is the main function of the module
 # Is the only function exported by the module
@@ -61,17 +61,20 @@ function DockerColorPosh {
         # Colorize the output with the apropiate colorize for each type of command
         if ($entire_command -match $regex_docker_commands_type_help){
             $output = Invoke-Expression $entire_command
-            $output | ColorizeTypeHelp
+            $output | Format-TypeHelpCommand
         }
+
         elseif ($entire_command -match $regex_docker_excluded_subcommands) {
             Invoke-Expression $entire_command
         }
+
         elseif ($entire_command -match $regex_docker_commands_type_list) {
             $output = Invoke-Expression $entire_command
-            $output | ColorizeTypeList
+            $output | Format-TypeListCommand
+
         } elseif ($entire_command -match $regex_docker_commands_type_response){
             $output = Invoke-Expression $entire_command
-            $output | ForEach-Object { Write-Host $_ -ForegroundColor $main_color }
+            $output | Format-TypeResponseCommand
             }
         else { # If not, execute the command and show the output whitout color
             Invoke-Expression $entire_command
@@ -83,7 +86,7 @@ function DockerColorPosh {
 # Integrate the DockerCompletion module with the DockerColorPosh module
 # This function has to be called after the DockerCompletion module is installed
 # DockerCompletion module: https://github.com/matt9ucci/DockerCompletion
-function IntegrateDockerCompletionWithDockerColorPosh{
+function Enable-DockerCompletionWithinDockerColorPosh{
     # Import and get the DockerCompletion's PSModuleInfo
     Import-Module DockerCompletion
     [System.Management.Automation.PSModuleInfo]$DockerCompletion = Get-Module DockerCompletion
@@ -101,4 +104,18 @@ function IntegrateDockerCompletionWithDockerColorPosh{
     foreach ($alias in $aliases){
         Register-ArgumentCompleter -CommandName $alias -ScriptBlock $completer
     }
+}
+
+# This function is for open the color-scheme file configured in the module.
+# If a custom file is not configured, the default file will be opened
+# Is not recommended to edit the default color scheme file, because it will be overwritten when the module is updated
+# If you edit the file, you must restart the terminal to apply the changes
+function Open-DockerColorPoshColorSchemeFile {
+    #resolve the path of the file
+    $schemeFilePath = Resolve-Path $targetColorSchemeFilePath
+    Write-Warning "Opening the color scheme file at $schemeFilePath"
+    #open the file with the default program for .json files in the system
+    Start-Process $schemeFilePath
+
+
 }

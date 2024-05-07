@@ -1,4 +1,4 @@
-function GenericFormatter {
+function Write-ColorizedListTypeOutput {
     param (
             [Parameter(Mandatory = $true)]
             [string[]]$array_lines,

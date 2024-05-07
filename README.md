@@ -12,7 +12,8 @@
 * [Module´s presentation](#-docker-color-posh-a-splash-of-color-to-your-docker-console-)
 * [Project Status](#project-status)
 * [Installation](#installation)
-    * [Integration with the matt9ucci/DockerCompletion module (optional)](#integration-with-the-matt9uccidockercompletion-module-optional)
+    * [( optional ) Integration with the matt9ucci/DockerCompletion module](#integration-with-the-matt9uccidockercompletion-module)
+    * [( optional ) Customization](#customization) 
 * [Usage](#usage)
 * [Compatible Docker commands](#compatible-docker-commands)
 * [Excluded subcommands](#excluded-subcommands)
@@ -47,12 +48,12 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
 
 1. Install the module into your PowerShell using the command:
    ```powershell
-   Install-Module -Name DockerColorPosh
+   PS> Install-Module -Name DockerColorPosh
    ```
 
 2. (Optional) For convenience, you can create an alias. This allows you to use your preferred shortcut for the commands. To set up an alias, use for example:
    ```powershell
-   Set-Alias d DockerColorPosh
+   PS> Set-Alias d DockerColorPosh
    ```
 
 3. PowerShell profile example (for explicit loading):
@@ -63,16 +64,71 @@ To install the Docker Color Posh module and ensure it's automatically loaded in 
    * After adding these lines to your profile, the module will be automatically loaded in all future PowerShell sessions, making it ready to use immediately.
    * For PowerShell 3.0 and above, the module will be automatically imported when any command from the module is used in a session, so you may not need to add the import command to your profile.
 
-### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module (optional)
+### Integration with the [matt9ucci/DockerCompletion](https://github.com/matt9ucci/DockerCompletion) module
 **The DockerCompletion is a PowerShell module that provides tab completion for Docker commands. It is not required to use Docker Color Posh, but it is recommended for a better user experience.**
-1. After installing the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
-2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh: `IntegrateDockerCompletionWithDockerColorPosh`
-3. To permanently integrate, add the line to your PowerShell profile. Make sure the line 'Invoke-Expression IntegrateDockerCompletion' is placed after the DockerColorPosh module's alias has been set up.
-4. Powershell profile example:
+1. After installing and configuring the Docker Color Posh Module, [install the DockerCompletion module](https://github.com/matt9ucci/DockerCompletion#installation)
+2. Execute the following line in your terminal to integrate the DockerCompletion module with Docker Color Posh (after DockerColorPosh has been imported and configured):
     ```powershell
-      Import-Module -Name DockerColorPosh
-      Set-Alias d DockerColorPosh
-      IntegrateDockerCompletionWithDockerColorPosh
+    PS> Enable-DockerCompletionWithinDockerColorPosh
+     ```
+3. To permanently integrate, add the line to your PowerShell profile. Make sure the line `Enable-DockerCompletionWithinDockerColorPosh` is placed after the DockerColorPosh module's alias has been set up.
+4. Powershell profile example:
+    ```powershell profile
+   Import-Module -Name DockerColorPosh
+   Set-Alias d DockerColorPosh
+   Enable-DockerCompletionWithinDockerColorPosh
+     ```
+### Customization
+
+**Explore and personalize the color schemes within the module or introduce your own to tailor your experience.**
+
+1. **Changing the Color Scheme:**
+   - The pre-defined color schemes are listed in the [colors.json](https://github.com/IsWladi/DockerColorPosh/blob/dev/DockerColorPosh/presets/colors.json) file.
+   - "DARK" is the set default color scheme.
+   - To switch to a different scheme:
+     - Assign a value to the `dcpColorScheme` variable with the name of your desired color scheme. If the name is not recognized, the default scheme is applied.
+     - Set the variable in your PowerShell profile.
+     - Restart the terminal to apply the new color scheme.
+   - **Powershell profile Example:**
+     ```powershell
+     Set-Variable -Name dcpColorScheme -Value "LIGHT" # Applies the 'LIGHT' color scheme
+     ```
+
+2. **Adding Your Own Color Scheme:**
+   - To create a custom color scheme, start by saving a new JSON file on your computer using the following structure:
+     ```json
+     {
+        "ColorSchemes": {
+            "MYSCHEME1": {
+                "GeneralColors": {
+                    "HeaderColor": "DarkYellow",
+                    "FirstRow": "DarkBlue",
+                    "SecondRow": "DarkCyan"
+                },
+                "HelpTypeCommands": {
+                    "HelpFlagsColor": "DarkRed",
+                    "HelpHeaderColor": "DarkMagenta"
+                },
+                "ListTypeCommands": {
+                    "ContainerStatus": {
+                        "Up": "DarkGreen",
+                        "Exited": "DarkRed"
+                    }
+                }
+            }
+        }
+     }
+     ```
+   - Customize your scheme by renaming `MYSCHEME1` and changing the colors. Make sure to choose colors supported by PowerShell.
+   - Once your color scheme is ready:
+     - Assign the path of your custom scheme file to the variable `dcpCustomColorSchemePath`.
+     - Set `dcpColorScheme` to the name of your new color scheme.
+     - Set these variables in your PowerShell profile.
+     - Restart the terminal to see your color scheme in action.
+   - **Powershell profile Example:**
+     ```powershell
+     Set-Variable -Name dcpCustomColorSchemePath -Value "C:\path\to\your\dcp_custom_scheme_file.json" # Loads your custom color scheme
+     Set-Variable -Name dcpColorScheme -Value "MYSCHEME1" # Applies your custom color scheme
      ```
 
 ## Usage

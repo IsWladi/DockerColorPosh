@@ -1,0 +1,39 @@
+{
+    "ColorSchemes": {
+        "LIGHT": {
+            "GeneralColors": {
+                "HeaderColor": "Yellow",
+                "FirstRow": "Cyan",
+                "SecondRow": "DarkCyan"
+            },
+            "HelpTypeCommands": {
+                "HelpFlagsColor": "Red",
+                "HelpHeaderColor": "Green"
+            },
+            "ListTypeCommands": {
+                "ContainerStatus": {
+                    "Up": "Green",
+                    "Exited": "Red"
+                }
+            }
+        },
+
+        "DARK": {
+            "GeneralColors": {
+                "HeaderColor": "DarkYellow",
+                "FirstRow": "DarkBlue",
+                "SecondRow": "DarkCyan"
+            },
+            "HelpTypeCommands": {
+                "HelpFlagsColor": "DarkRed",
+                "HelpHeaderColor": "DarkMagenta"
+            },
+            "ListTypeCommands": {
+                "ContainerStatus": {
+                    "Up": "DarkGreen",
+                    "Exited": "DarkRed"
+                }
+            }
+        }
+    }
+}
